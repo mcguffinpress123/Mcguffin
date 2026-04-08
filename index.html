@@ -513,8 +513,105 @@
   }
   .modal-dismiss:hover { color: rgba(130,160,255,0.7); }
 
-
-  /* SPECIAL EDITIONS */
+  /* QUERY COMPASS GUIDE MODAL */
+  .qc-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9100;
+    background: rgba(2, 3, 14, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .qc-modal-overlay.active { display: flex; }
+  .qc-modal-box {
+    position: relative;
+    max-width: 680px;
+    width: 100%;
+    max-height: 88vh;
+    overflow-y: auto;
+    background: linear-gradient(150deg, #060D28 0%, #04061A 100%);
+    border: 1px solid rgba(201,162,39,0.4);
+    padding: 3.5rem 3rem 3rem;
+    animation: modalIn 0.4s ease forwards;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(201,162,39,0.3) transparent;
+  }
+  .qc-modal-box::-webkit-scrollbar { width: 4px; }
+  .qc-modal-box::-webkit-scrollbar-thumb { background: rgba(201,162,39,0.3); border-radius: 2px; }
+  .qc-modal-box::before { content:''; position:absolute; top:9px; left:9px; width:22px; height:22px; border:1px solid rgba(201,162,39,0.45); border-width:1px 0 0 1px; }
+  .qc-modal-box::after  { content:''; position:absolute; bottom:9px; right:9px; width:22px; height:22px; border:1px solid rgba(201,162,39,0.45); border-width:0 1px 1px 0; }
+  .qc-corner-tr { position:absolute; top:9px; right:9px; width:22px; height:22px; border:1px solid rgba(201,162,39,0.45); border-width:1px 1px 0 0; }
+  .qc-corner-bl { position:absolute; bottom:9px; left:9px; width:22px; height:22px; border:1px solid rgba(201,162,39,0.45); border-width:0 0 1px 1px; }
+  .qc-modal-close {
+    position: absolute; top: 1rem; right: 1.2rem;
+    background: none; border: none;
+    color: rgba(130,160,255,0.4); font-size: 1.3rem;
+    cursor: pointer; line-height: 1; transition: color 0.2s; font-family: serif;
+  }
+  .qc-modal-close:hover { color: var(--gold); }
+  .qc-modal-eyebrow {
+    font-family: 'Cinzel', serif; font-size: 0.52rem;
+    letter-spacing: 0.42em; text-transform: uppercase;
+    color: rgba(140,170,255,0.6); margin-bottom: 0.6rem; display: block;
+  }
+  .qc-modal-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.1rem, 3vw, 1.55rem);
+    font-weight: 700; color: var(--star);
+    margin-bottom: 0.5rem; line-height: 1.25;
+  }
+  .qc-modal-rule {
+    width: 200px; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(201,162,39,0.55), transparent);
+    margin: 0 0 2rem;
+  }
+  .qc-section {
+    margin-bottom: 2rem;
+    padding: 1.6rem 1.8rem;
+    border: 1px solid rgba(100,130,255,0.14);
+    background: rgba(8,12,40,0.45);
+    position: relative;
+  }
+  .qc-section-header {
+    display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.9rem;
+  }
+  .qc-section-icon {
+    font-size: 1.3rem; flex-shrink: 0;
+  }
+  .qc-section-title {
+    font-family: 'Cinzel', serif; font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold);
+  }
+  .qc-section p, .qc-section li {
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem; color: rgba(200,220,255,0.85); line-height: 1.82;
+  }
+  .qc-section ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+  .qc-section ul li::before { content: '✦ '; color: var(--gold); font-size: 0.7rem; opacity: 0.7; }
+  .qc-section strong { color: var(--parchment); font-style: normal; }
+  .qc-tip {
+    margin-top: 0.85rem;
+    padding: 0.9rem 1.2rem;
+    border-left: 2px solid rgba(201,162,39,0.4);
+    background: rgba(201,162,39,0.04);
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 0.97rem;
+    color: var(--gold-pale);
+    line-height: 1.75;
+  }
+  .qc-modal-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    margin-top: 2.2rem; padding-top: 1.8rem;
+    border-top: 1px solid rgba(100,130,255,0.1);
+  }
+  @media(max-width:600px) {
+    .qc-modal-box { padding: 2.5rem 1.4rem 2rem; }
+  }
   .special-editions {
     padding: 7rem 2rem;
     background:
@@ -1222,14 +1319,35 @@
   <p class="section-intro reveal">Tools, guides, and support to help McGuffin Press authors succeed — from first draft to launch day.</p>
   <div class="resources-grid">
 
+    <div class="reveal" style="grid-column:1/-1; max-width:780px; margin:0 auto 1rem; width:100%; text-align:center; padding:2.5rem 2.5rem; border:1px solid rgba(201,162,39,0.15); background:rgba(201,162,39,0.03); position:relative;">
+      <div style="position:absolute;top:9px;left:9px;width:18px;height:18px;border:1px solid rgba(201,162,39,0.3);border-width:1px 0 0 1px;"></div>
+      <div style="position:absolute;top:9px;right:9px;width:18px;height:18px;border:1px solid rgba(201,162,39,0.3);border-width:1px 1px 0 0;"></div>
+      <div style="position:absolute;bottom:9px;left:9px;width:18px;height:18px;border:1px solid rgba(201,162,39,0.3);border-width:0 0 1px 1px;"></div>
+      <div style="position:absolute;bottom:9px;right:9px;width:18px;height:18px;border:1px solid rgba(201,162,39,0.3);border-width:0 1px 1px 0;"></div>
+      <span style="font-family:'Cinzel',serif;font-size:0.52rem;letter-spacing:0.42em;text-transform:uppercase;color:rgba(201,162,39,0.55);display:block;margin-bottom:1.2rem;">✦ A Note From McGuffin Press ✦</span>
+      <p style="font-family:'EB Garamond',serif;font-style:italic;font-size:clamp(1.1rem,2.2vw,1.35rem);color:var(--gold-pale);line-height:1.85;margin-bottom:1rem;">
+        We built these tools because querying is hard — and lonely — and you deserve more than a form rejection and a spreadsheet.
+      </p>
+      <div style="width:160px;height:1px;background:linear-gradient(to right,transparent,rgba(201,162,39,0.45),transparent);margin:0 auto 1.2rem;"></div>
+      <p style="font-family:'EB Garamond',serif;font-size:1.05rem;color:rgba(200,220,255,0.78);line-height:1.9;">
+        Whether your path leads to McGuffin Press or somewhere else entirely, we are rooting for your story to find its home. Every query you send is an act of courage. We see that. We honor it. Now go find your people and know that we are cheering for you every step of the way.
+      </p>
+      <p style="font-family:'Cinzel',serif;font-size:0.68rem;color:rgba(201,162,39,0.6);letter-spacing:0.15em;margin-top:1.6rem;">— The McGuffin Press Team</p>
+    </div>
+
     <div class="resource-card reveal reveal-delay-1">
       <span class="resource-card-badge">Live Tool</span>
       <span class="resource-card-icon">🧭</span>
       <h3>Query Compass</h3>
-      <p>Our AI-powered query letter analysis tool. Paste your query and get instant, targeted feedback on hook, premise clarity, voice, and market positioning — built specifically for authors querying literary agents and small presses.</p>
-      <a href="https://mcguffin-press.com/QueryCompass-v5.html" target="_blank" rel="noopener" class="btn-resource btn-resource-primary">
-        Open Query Compass ↗
-      </a>
+      <p>Track and celebrate every step of your query journey — from your first send to your first yes. Query Compass also builds you a focused AI research prompt so you can discover the agents and small presses most likely to fall in love with your book. Know where you've been. Know exactly where to go next.</p>
+      <div style="display:flex; gap:0.8rem; flex-wrap:wrap; align-items:center; margin-top:0.5rem;">
+        <a href="https://mcguffin-press.com/QueryCompass-v5.html" target="_blank" rel="noopener" class="btn-resource btn-resource-primary">
+          Open Query Compass ↗
+        </a>
+        <button onclick="openQCGuide()" class="btn-resource" style="border-color:rgba(140,170,255,0.4); color:rgba(180,210,255,0.7);">
+          How to Use ✦
+        </button>
+      </div>
     </div>
 
     <div class="resource-card reveal reveal-delay-2">
@@ -1250,7 +1368,7 @@
       <span class="resource-card-icon">✉️</span>
       <h3>Direct Editorial Contact</h3>
       <p>We believe in real relationships, not form letters. Questions about the process, your manuscript, or what we mean by "authentic voice"? Reach out — we actually reply.</p>
-      <a href="mailto:mcguffinpress@gmail.com" class="btn-resource">Contact Editorial →</a>
+      <a href="/cdn-cgi/l/email-protection#0b66686c7e6d6d62657b796e78784b6c666a626725686466" class="btn-resource">Contact Editorial →</a>
     </div>
 
     <div class="resource-card reveal reveal-delay-1">
@@ -1268,9 +1386,9 @@
     </div>
 
   </div>
-</section>
 
-<!-- SHOP -->
+
+</section>
 <section class="shop-section" id="shop">
   <div class="section-label reveal">Books &amp; Merch</div>
   <h2 class="section-title reveal">The McGuffin Shop</h2>
@@ -1316,6 +1434,86 @@
   </div>
   <p class="shop-notice">Purchases will be processed securely through Square. Shop launching alongside our first title release — April 14, 2026.</p>
 </section>
+
+<!-- QUERY COMPASS GUIDE MODAL -->
+<div class="qc-modal-overlay" id="qcGuideModal">
+  <div class="qc-modal-box">
+    <div class="qc-corner-tr"></div>
+    <div class="qc-corner-bl"></div>
+    <button class="qc-modal-close" onclick="closeQCGuide()" aria-label="Close">✕</button>
+
+    <span class="qc-modal-eyebrow">✦ Author Resource Guide ✦</span>
+    <h2 class="qc-modal-title">How to Use Query Compass</h2>
+    <div class="qc-modal-rule"></div>
+
+    <div class="qc-section">
+      <div class="qc-section-header">
+        <span class="qc-section-icon">🧭</span>
+        <span class="qc-section-title">What Query Compass Is For</span>
+      </div>
+      <p>Query Compass is your personal query journey tracker and research launchpad. It does two things: it helps you <strong>log and celebrate every query you send</strong> — rejections, requests, wins, and everything in between — and it helps you <strong>find the right agents and small presses to query next</strong> by building you a focused AI research prompt tailored to your specific book.</p>
+      <div class="qc-tip">Think of it as part journal, part compass. You always know where you've been, and you always know where to point next.</div>
+    </div>
+
+    <div class="qc-section">
+      <div class="qc-section-header">
+        <span class="qc-section-icon">📋</span>
+        <span class="qc-section-title">Tracking Your Query Journey</span>
+      </div>
+      <ul>
+        <li>Add each query you send — agent or press name, date sent, and current status (sent, rejected, partial request, full request, offer).</li>
+        <li>Update statuses as responses come in. Every update is a milestone worth noting.</li>
+        <li>The tracker surfaces your momentum at a glance: how many you've sent, how many are open, and how far you've come.</li>
+      </ul>
+      <div class="qc-tip">A rejection logged is a rejection processed. Seeing your full list reminds you that this is a numbers game — and that every "no" is one step closer to your yes.</div>
+    </div>
+
+    <div class="qc-section">
+      <div class="qc-section-header">
+        <span class="qc-section-icon">🤖</span>
+        <span class="qc-section-title">The AI Research Prompt — What It Does</span>
+      </div>
+      <p>When you fill in your book's details — genre, age category, comp titles, themes, and word count — Query Compass generates a <strong>custom AI research prompt</strong> you can paste directly into ChatGPT, Claude, or any AI assistant.</p>
+      <p style="margin-top:0.7rem;">That prompt is specifically designed to ask the AI to surface <strong>agents and small presses actively seeking books like yours</strong> — not a generic list, but a targeted one based on your book's actual profile. Think of it as briefing a very well-read research assistant.</p>
+      <div class="qc-tip">"Find me literary agents currently seeking upper middle-grade fantasy with strong female leads, comp titles to <em>Aru Shah</em> and <em>A Wish in the Dark</em>, and a word count of 72,000…" — that level of specificity gets real results.</div>
+    </div>
+
+    <div class="qc-section">
+      <div class="qc-section-header">
+        <span class="qc-section-icon">⬇️</span>
+        <span class="qc-section-title">Downloading Your Data as a CSV</span>
+      </div>
+      <p>Query Compass lets you <strong>export your full query log as a CSV file</strong> at any time. Here's how to make the most of it:</p>
+      <ul>
+        <li>Click the <strong>Download CSV</strong> button to save your tracker as a spreadsheet file.</li>
+        <li>Open it in <strong>Excel, Numbers, or Google Sheets</strong> — it imports cleanly with your columns intact.</li>
+        <li>Use it to sort by status, filter by date, add your own notes columns, or build charts of your submission timeline.</li>
+        <li>Keep a local backup — your CSV is yours. No account required, no data lock-in.</li>
+      </ul>
+      <div class="qc-tip">Pro tip: download a fresh CSV each time you do a batch of queries. Date your files so you have a clean history of your journey over time.</div>
+    </div>
+
+    <div class="qc-section">
+      <div class="qc-section-header">
+        <span class="qc-section-icon">📁</span>
+        <span class="qc-section-title">Connecting to Google Drive</span>
+      </div>
+      <p>For authors who want their tracker to live in the cloud and stay accessible from any device, Query Compass supports <strong>direct connection to your Google Drive</strong>.</p>
+      <ul>
+        <li>Click <strong>Connect Google Drive</strong> and sign in with your Google account when prompted.</li>
+        <li>Once connected, your query log will save automatically to a dedicated file in your Drive.</li>
+        <li>Access and edit your tracker from any browser — your data is always current.</li>
+        <li>You can also open your Drive file directly in Google Sheets to add columns, filters, or formatting.</li>
+      </ul>
+      <div class="qc-tip">Your data is stored in your own Drive, not ours. McGuffin Press never sees or stores your query log — it's entirely private to you.</div>
+    </div>
+
+    <div class="qc-modal-cta">
+      <a href="https://mcguffin-press.com/QueryCompass-v5.html" target="_blank" rel="noopener" class="btn-primary">Open Query Compass ↗</a>
+      <button onclick="closeQCGuide()" class="btn-ghost" style="border:1px solid rgba(190,210,255,0.2);padding:0.95rem 2.4rem;color:rgba(190,210,255,0.55);font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;background:transparent;cursor:pointer;transition:all 0.3s;">Close</button>
+    </div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -1491,7 +1689,7 @@ function buildShelf(){
   const H=rect.height||sc.height/window.devicePixelRatio;
   shelfBooks=[];
   const FAKE_LEFT=0,FAKE_RIGHT=0,REAL_COUNT=11,TOTAL_SLOTS=FAKE_LEFT+REAL_COUNT+FAKE_RIGHT,gap=3;
-  const slotW=Math.min(52,(W-gap*(TOTAL_SLOTS-1))/(TOTAL_SLOTS+1.5));
+  const slotW=Math.min(42,(W-gap*(TOTAL_SLOTS-1))/(TOTAL_SLOTS+3));
   const totalBooksW=REAL_COUNT*slotW+gap*(TOTAL_SLOTS-1);
   const startX=Math.round((W-totalBooksW)/2);
   const SHELF_Y=H;
@@ -1710,6 +1908,26 @@ document.querySelectorAll(
     el.href.includes('Manuscript%20Submission');
   if (isSubmitLink) {
     el.addEventListener('click', openSubmissionsModal);
+  }
+});
+</script>
+
+<script>
+function openQCGuide() {
+  document.getElementById('qcGuideModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeQCGuide() {
+  document.getElementById('qcGuideModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.getElementById('qcGuideModal').addEventListener('click', function(e) {
+  if (e.target === this) closeQCGuide();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeQCGuide();
+    closeModal();
   }
 });
 </script>
