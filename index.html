@@ -761,6 +761,142 @@
   .founder-read-more:hover { opacity: 0.7; }
 
 
+  /* AUTHOR RESOURCES */
+  .author-resources {
+    padding: 7rem 2rem;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 40%, rgba(20,24,84,0.4) 0%, transparent 70%),
+      linear-gradient(to bottom, var(--sky-deep), #060A22);
+    position: relative; overflow: hidden;
+  }
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .resource-card {
+    border: 1px solid rgba(100,130,255,0.18);
+    background: rgba(8,12,40,0.55);
+    padding: 2.4rem 2rem;
+    transition: border-color 0.3s, transform 0.3s;
+    position: relative;
+  }
+  .resource-card:hover { border-color: rgba(201,162,39,0.35); transform: translateY(-5px); }
+  .resource-card-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .resource-card h3 {
+    font-family: 'Cinzel', serif; font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.7rem;
+  }
+  .resource-card p { font-size: 0.97rem; color: rgba(200,220,255,0.82); line-height: 1.78; margin-bottom: 1.5rem; }
+  .resource-card-badge {
+    position: absolute; top: 1rem; right: 1rem;
+    font-family: 'Cinzel', serif; font-size: 0.46rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--sky-deep); background: var(--gold);
+    padding: 0.2rem 0.55rem;
+  }
+  .btn-resource {
+    font-family: 'Cinzel', serif; font-size: 0.6rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); background: transparent;
+    border: 1px solid rgba(201,162,39,0.5);
+    padding: 0.7rem 1.6rem; cursor: pointer;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
+    transition: all 0.35s;
+  }
+  .btn-resource:hover { background: rgba(201,162,39,0.08); border-color: var(--gold); color: var(--gold-light); }
+  .btn-resource-primary {
+    color: var(--sky-deep); background: var(--gold); border: 2px solid var(--gold);
+  }
+  .btn-resource-primary:hover { background: transparent; color: var(--gold); box-shadow: 0 0 30px rgba(201,162,39,0.3); }
+
+  /* SHOP */
+  .shop-section {
+    padding: 7rem 2rem;
+    background:
+      radial-gradient(ellipse 60% 50% at 30% 60%, rgba(80,30,0,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 75% 30%, rgba(15,20,90,0.22) 0%, transparent 60%),
+      linear-gradient(135deg, #060A1A 0%, #0A0600 100%);
+    position: relative; overflow: hidden;
+  }
+  .shop-intro-row {
+    max-width: 1100px; margin: 0 auto 3.5rem;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+  }
+  .shop-intro-text { max-width: 540px; }
+  .shop-intro-text p { font-size: 1.02rem; color: rgba(200,220,255,0.8); line-height: 1.85; }
+  .shop-coming-chip {
+    font-family: 'Cinzel', serif; font-size: 0.52rem; font-weight: 700;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); background: rgba(201,162,39,0.08);
+    border: 1px solid rgba(201,162,39,0.3);
+    padding: 0.4rem 1.1rem; display: inline-block; margin-bottom: 0.9rem;
+  }
+  .shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem; max-width: 1100px; margin: 0 auto;
+  }
+  .shop-card {
+    border: 1px solid rgba(201,162,39,0.18);
+    background: rgba(10,8,2,0.55);
+    padding: 0; overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+    display: flex; flex-direction: column;
+  }
+  .shop-card:hover { border-color: rgba(201,162,39,0.45); transform: translateY(-6px); }
+  .shop-card-visual {
+    height: 180px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 4rem;
+    background: linear-gradient(135deg, #140E00, #1E1800);
+    border-bottom: 1px solid rgba(201,162,39,0.12);
+    position: relative; overflow: hidden;
+  }
+  .shop-card-visual::after {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(201,162,39,0.025) 30px, rgba(201,162,39,0.025) 31px);
+  }
+  .shop-card-body { padding: 1.8rem 1.6rem; flex: 1; display: flex; flex-direction: column; }
+  .shop-card-type {
+    font-family: 'Cinzel', serif; font-size: 0.5rem; font-weight: 700;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: rgba(201,162,39,0.75); margin-bottom: 0.5rem; display: block;
+  }
+  .shop-card h3 {
+    font-family: 'Cinzel', serif; font-size: 0.88rem; font-weight: 700;
+    color: var(--star); margin-bottom: 0.5rem; letter-spacing: 0.05em;
+  }
+  .shop-card p { font-size: 0.92rem; color: rgba(200,220,255,0.78); line-height: 1.7; margin-bottom: 1.4rem; flex: 1; }
+  .btn-shop {
+    font-family: 'Cinzel', serif; font-size: 0.58rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--sky-deep); background: var(--gold); border: 2px solid var(--gold);
+    padding: 0.7rem 1.5rem; cursor: pointer; text-decoration: none;
+    display: inline-block; transition: all 0.35s; align-self: flex-start;
+  }
+  .btn-shop:hover { background: transparent; color: var(--gold); box-shadow: 0 0 24px rgba(201,162,39,0.3); }
+  .btn-shop.soon {
+    background: transparent; color: rgba(201,162,39,0.4);
+    border-color: rgba(201,162,39,0.2); cursor: default; pointer-events: none;
+    letter-spacing: 0.28em;
+  }
+  .shop-notice {
+    max-width: 1100px; margin: 3rem auto 0;
+    text-align: center;
+    font-family: 'EB Garamond', serif; font-style: italic;
+    font-size: 0.93rem; color: rgba(200,220,255,0.35);
+    border-top: 1px solid rgba(100,130,255,0.1); padding-top: 2rem;
+  }
+  @media(max-width:768px) {
+    .resources-grid { grid-template-columns: 1fr; }
+    .shop-grid { grid-template-columns: 1fr; }
+    .shop-intro-row { flex-direction: column; }
+  }
+
   /* KIT SUCCESS TOAST */
   .kit-toast {
     position: fixed;
@@ -1079,6 +1215,108 @@
   </form>
 </section>
 
+<!-- AUTHOR RESOURCES -->
+<section class="author-resources" id="author-resources">
+  <div class="section-label reveal">For Our Authors</div>
+  <h2 class="section-title reveal">Author Resources</h2>
+  <p class="section-intro reveal">Tools, guides, and support to help McGuffin Press authors succeed — from first draft to launch day.</p>
+  <div class="resources-grid">
+
+    <div class="resource-card reveal reveal-delay-1">
+      <span class="resource-card-badge">Live Tool</span>
+      <span class="resource-card-icon">🧭</span>
+      <h3>Query Compass</h3>
+      <p>Our AI-powered query letter analysis tool. Paste your query and get instant, targeted feedback on hook, premise clarity, voice, and market positioning — built specifically for authors querying literary agents and small presses.</p>
+      <a href="https://mcguffin-press.com/QueryCompass-v5.html" target="_blank" rel="noopener" class="btn-resource btn-resource-primary">
+        Open Query Compass ↗
+      </a>
+    </div>
+
+    <div class="resource-card reveal reveal-delay-2">
+      <span class="resource-card-icon">📋</span>
+      <h3>Submission Guidelines</h3>
+      <p>Everything you need to know before hitting send — formatting expectations, what we're looking for, and how to write a query that gets read. No surprises, no hidden rules.</p>
+      <a href="#submissions" class="btn-resource">View Guidelines →</a>
+    </div>
+
+    <div class="resource-card reveal reveal-delay-3">
+      <span class="resource-card-icon">📖</span>
+      <h3>Manuscript Wishlist</h3>
+      <p>The specific stories and genres we're actively seeking right now. Read this before you query — knowing what editors want is half the battle.</p>
+      <a href="#wishlist" class="btn-resource">Explore Wishlist →</a>
+    </div>
+
+    <div class="resource-card reveal">
+      <span class="resource-card-icon">✉️</span>
+      <h3>Direct Editorial Contact</h3>
+      <p>We believe in real relationships, not form letters. Questions about the process, your manuscript, or what we mean by "authentic voice"? Reach out — we actually reply.</p>
+      <a href="mailto:mcguffinpress@gmail.com" class="btn-resource">Contact Editorial →</a>
+    </div>
+
+    <div class="resource-card reveal reveal-delay-1">
+      <span class="resource-card-icon">📅</span>
+      <h3>Events & Author Appearances</h3>
+      <p>Signings, school visits, festivals, and readings. We actively support our authors in getting in front of readers — check upcoming events or reach out about booking.</p>
+      <a href="#events" class="btn-resource">View Events →</a>
+    </div>
+
+    <div class="resource-card reveal reveal-delay-2">
+      <span class="resource-card-icon">✦</span>
+      <h3>Author Spotlights</h3>
+      <p>Each newsletter features a deep dive on one of our authors — their process, their inspiration, and the story behind the story. Join our list to get them first.</p>
+      <a href="#stay" class="btn-resource">Join the Newsletter →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="shop-section" id="shop">
+  <div class="section-label reveal">Books &amp; Merch</div>
+  <h2 class="section-title reveal">The McGuffin Shop</h2>
+  <div class="shop-intro-row reveal">
+    <div class="shop-intro-text">
+      <span class="shop-coming-chip">✦ Shop Opening Soon ✦</span>
+      <p>Signed copies, limited special editions, and McGuffin-branded goods — for readers who believe every great story deserves a place on the shelf. Our shop is nearly ready; join the list to be notified first.</p>
+    </div>
+    <a href="#stay" class="btn-primary">Notify Me at Launch</a>
+  </div>
+  <div class="shop-grid">
+
+    <div class="shop-card reveal reveal-delay-1">
+      <div class="shop-card-visual">📚</div>
+      <div class="shop-card-body">
+        <span class="shop-card-type">Books</span>
+        <h3>Signed Copies</h3>
+        <p>First editions signed by McGuffin Press authors — the kind of thing that becomes an heirloom. Limited quantities per release.</p>
+        <span class="btn-shop soon">Coming Soon</span>
+      </div>
+    </div>
+
+    <div class="shop-card reveal reveal-delay-2">
+      <div class="shop-card-visual">⭐</div>
+      <div class="shop-card-body">
+        <span class="shop-card-type">Special Editions</span>
+        <h3>Limited &amp; Collector's Editions</h3>
+        <p>Deluxe bindings, exclusive cover art, and collectible extras for the readers who want to own something truly special.</p>
+        <span class="btn-shop soon">Coming Soon</span>
+      </div>
+    </div>
+
+    <div class="shop-card reveal reveal-delay-3">
+      <div class="shop-card-visual">🎁</div>
+      <div class="shop-card-body">
+        <span class="shop-card-type">Gift Sets</span>
+        <h3>Book Bundles &amp; Gift Sets</h3>
+        <p>Curated collections for the readers in your life — a complete McGuffin Press catalog bundle, or a custom pairing for every kind of reader.</p>
+        <span class="btn-shop soon">Coming Soon</span>
+      </div>
+    </div>
+
+  </div>
+  <p class="shop-notice">Purchases will be processed securely through Square. Shop launching alongside our first title release — April 14, 2026.</p>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-top">
@@ -1088,7 +1326,7 @@
       </div>
       <p>A small forward-thinking traditional press with big attitude. Because every great story needs a McGuffin.</p>
     </div>
-    <div class="footer-col"><h4>Explore</h4><ul><li><a href="#about">About Us</a></li><li><a href="#catalog">McGuffin Books</a></li><li><a href="#authors">Authors</a></li><li><a href="#illustrators">Illustrators</a></li><li><a href="#events">Events</a></li></ul></div>
+    <div class="footer-col"><h4>Explore</h4><ul><li><a href="#about">About Us</a></li><li><a href="#catalog">McGuffin Books</a></li><li><a href="#authors">Authors</a></li><li><a href="#illustrators">Illustrators</a></li><li><a href="#events">Events</a></li><li><a href="#author-resources">Author Resources</a></li><li><a href="#shop">Shop</a></li></ul></div>
     <div class="footer-col"><h4>Submit</h4><ul><li><a href="#submissions">Guidelines</a></li><li><a href="#wishlist">Manuscript Wishlist</a></li><li><a href="/cdn-cgi/l/email-protection#d6bbb5b1a3b0b0bfb8a6a4b3a5a596b1bbb7bfbaf8b5b9bb">Submit Manuscript</a></li><li><a href="/cdn-cgi/l/email-protection#8be6e8ecfeedede2e5fbf9eef8f8cbece6eae2e7a5e8e4e6"><span class="__cf_email__" data-cfemail="08656b6f7d6e6e6166787a6d7b7b486f65696164266b6765">[email&#160;protected]</span></a></li></ul></div>
     <div class="footer-col"><h4>Connect</h4><ul><li><a href="https://www.instagram.com/mcguffinpress" target="_blank">Instagram</a></li><li><a href="#events">Events</a></li><li><a href="#stay">Stay in the Know</a></li></ul></div>
   </div>
@@ -1233,6 +1471,8 @@ const BOOK_DATA=[
   {title:"Manuscript Wishlist",color:'#4A0A18',colorLight:'#7B1228',accent:'#C9A227',pageColor:'#F5EAD5',ornament:'∞',glowColor:'rgba(120,15,35,',href:'#wishlist',navLabel:'Wishlist'},
   {title:"Events",color:'#0C2040',colorLight:'#163060',accent:'#C9A227',pageColor:'#EAF0F8',ornament:'⋆',glowColor:'rgba(20,60,160,',href:'#events',navLabel:'Events'},
   {title:"Newsletter",color:'#3C0810',colorLight:'#6A1020',accent:'#C9A227',pageColor:'#F5EAD5',ornament:'★',glowColor:'rgba(100,15,25,',href:'#stay',navLabel:'Newsletter'},
+  {title:"Author Resources",color:'#0A2040',colorLight:'#123060',accent:'#90C8E8',pageColor:'#E8F4FC',ornament:'🧭',glowColor:'rgba(20,70,180,',href:'#author-resources',navLabel:'Author Resources'},
+  {title:"Shop",color:'#302000',colorLight:'#504000',accent:'#FFD700',pageColor:'#FFF8E0',ornament:'✦',glowColor:'rgba(200,150,0,',href:'#shop',navLabel:'Shop'},
 ];
 
 let shelfBooks=[];
@@ -1250,23 +1490,14 @@ function buildShelf(){
   const W=rect.width||sc.width/window.devicePixelRatio;
   const H=rect.height||sc.height/window.devicePixelRatio;
   shelfBooks=[];
-  const FAKE_LEFT=2,FAKE_RIGHT=1,REAL_COUNT=9,TOTAL_SLOTS=FAKE_LEFT+REAL_COUNT+FAKE_RIGHT,gap=3;
+  const FAKE_LEFT=0,FAKE_RIGHT=0,REAL_COUNT=11,TOTAL_SLOTS=FAKE_LEFT+REAL_COUNT+FAKE_RIGHT,gap=3;
   const slotW=Math.min(52,(W-gap*(TOTAL_SLOTS-1))/(TOTAL_SLOTS+1.5));
-  const fakeW=Math.round(slotW*0.70);
-  const totalBooksW=FAKE_LEFT*fakeW+REAL_COUNT*slotW+FAKE_RIGHT*fakeW+gap*(TOTAL_SLOTS-1);
+  const totalBooksW=REAL_COUNT*slotW+gap*(TOTAL_SLOTS-1);
   const startX=Math.round((W-totalBooksW)/2);
   const SHELF_Y=H;
-  const fakeLeftData=[{color:'#1A0C30',colorLight:'#2A1450',accent:'#8A7AB0',pageColor:'#E8E0F0'},{color:'#0A1E0A',colorLight:'#142814',accent:'#6A9A6A',pageColor:'#E0F0E0'}];
-  const fakeHeightsL=[0.75,0.85];
   let xCursor=startX;
-  fakeLeftData.forEach((fd,fi)=>{
-    const fh=H*0.88*fakeHeightsL[fi];
-    const ft=fi===0?-0.08:0;
-    shelfBooks.push({title:'',href:null,navLabel:null,isFake:true,color:fd.color,colorLight:fd.colorLight,accent:fd.accent,pageColor:fd.pageColor,ornament:'',glowColor:'rgba(100,100,120,',baseX:xCursor,baseY:SHELF_Y-fh,x:0,y:0,w:fakeW,h:fh,baseTilt:ft,tilt:ft,targetTilt:ft,floatOffset:Math.random()*Math.PI*2,floatAmt:0,glow:0,glowTarget:0,escaped:false,escapeVy:0,escapeVx:0,escapeAlpha:1,sparkles:[],enchantPhase:Math.random()*Math.PI*2,enchantSpeed:0.015+Math.random()*0.01,pageOpen:0.01+Math.random()*0.02,swayPhase:Math.random()*Math.PI*2,dustMotes:[]});
-    xCursor+=fakeW+gap;
-  });
-  const heightVariance=[1.0,0.88,0.94,0.90,0.86,1.0,0.92,0.96,0.93];
-  const leanAngles=[0,0,0.13,0,0,-0.11,0,0,0];
+  const heightVariance=[1.0,0.88,0.94,0.90,0.86,1.0,0.92,0.96,0.93,0.89,0.95];
+  const leanAngles=[0,0,0.13,0,0,-0.11,0,0,0,0.08,-0.06];
   for(let i=0;i<REAL_COUNT;i++){
     const d=BOOK_DATA[i];
     const baseH=H*0.88*heightVariance[i];
@@ -1275,8 +1506,6 @@ function buildShelf(){
     shelfBooks.push({...d,isFake:false,baseX:xCursor,baseY:SHELF_Y-baseH+leanYOffset,x:0,y:0,w:slotW,h:baseH,baseTilt,tilt:baseTilt,targetTilt:baseTilt,floatOffset:Math.random()*Math.PI*2,floatAmt:0,glow:0,glowTarget:0,escaped:false,escapeVy:0,escapeVx:0,escapeAlpha:1,sparkles:[],enchantPhase:Math.random()*Math.PI*2,enchantSpeed:0.018+Math.random()*0.012,pageOpen:0.02+Math.random()*0.04,swayPhase:Math.random()*Math.PI*2,dustMotes:Array.from({length:2},()=>({x:Math.random(),y:Math.random(),size:0.6+Math.random()*0.8,phase:Math.random()*Math.PI*2,speed:0.008+Math.random()*0.01}))});
     xCursor+=slotW+gap;
   }
-  const fakeRightH=H*0.88*0.80;
-  shelfBooks.push({title:'',href:null,navLabel:null,isFake:true,color:'#1A1A08',colorLight:'#2E2A0C',accent:'#A09050',pageColor:'#F0ECD8',ornament:'',glowColor:'rgba(100,100,60,',baseX:xCursor,baseY:SHELF_Y-fakeRightH,x:0,y:0,w:fakeW,h:fakeRightH,baseTilt:0.06,tilt:0.06,targetTilt:0.06,floatOffset:Math.random()*Math.PI*2,floatAmt:0,glow:0,glowTarget:0,escaped:false,escapeVy:0,escapeVx:0,escapeAlpha:1,sparkles:[],enchantPhase:Math.random()*Math.PI*2,enchantSpeed:0.015,pageOpen:0.01,swayPhase:Math.random()*Math.PI*2,dustMotes:[]});
   shelfParticles=Array.from({length:8},()=>makeShelfParticle(W,H));
 }
 buildShelf();
