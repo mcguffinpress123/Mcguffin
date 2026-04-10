@@ -551,6 +551,106 @@
     margin-bottom: 0.3rem;
   }
 
+  /* ── QUERY COMPASS MODAL ────────────────────────── */
+  .qc-modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 9100;
+    background: rgba(4,6,18,0.92);
+    align-items: flex-start; justify-content: center;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+    backdrop-filter: blur(5px);
+  }
+  .qc-modal-overlay.active { display: flex; }
+  .qc-modal-box {
+    background: linear-gradient(160deg, #08091A 0%, #0C0608 100%);
+    border: 1px solid rgba(100,130,255,0.25);
+    padding: 3rem 2.8rem;
+    max-width: 720px; width: 100%;
+    position: relative; margin: auto;
+  }
+  .qc-corner-tr {
+    position: absolute; top: 9px; right: 9px;
+    width: 22px; height: 22px;
+    border: 1px solid rgba(100,130,255,0.35); border-width: 1px 1px 0 0;
+  }
+  .qc-corner-bl {
+    position: absolute; bottom: 9px; left: 9px;
+    width: 22px; height: 22px;
+    border: 1px solid rgba(100,130,255,0.35); border-width: 0 0 1px 1px;
+  }
+  .qc-modal-close {
+    position: absolute; top: 1.1rem; right: 1.3rem;
+    background: none; border: none; color: rgba(200,220,255,0.4);
+    font-size: 1.1rem; cursor: pointer; transition: color 0.2s; line-height: 1;
+  }
+  .qc-modal-close:hover { color: rgba(150,185,255,0.9); }
+  .qc-modal-eyebrow {
+    font-family: 'Cinzel', serif; font-size: 0.5rem; font-weight: 700;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(150,185,255,0.7); display: block; margin-bottom: 0.8rem;
+  }
+  .qc-modal-title {
+    font-family: 'Cinzel Decorative', 'Cinzel', serif;
+    font-size: clamp(1.2rem, 3vw, 1.8rem); font-weight: 700;
+    color: var(--star); letter-spacing: 0.04em; margin-bottom: 1rem;
+  }
+  .qc-modal-rule {
+    width: 60px; height: 1px;
+    background: rgba(100,130,255,0.4);
+    margin-bottom: 2rem;
+  }
+  .qc-section { margin-bottom: 2rem; }
+  .qc-section-header {
+    display: flex; align-items: center; gap: 0.75rem;
+    margin-bottom: 0.8rem;
+  }
+  .qc-section-icon { font-size: 1.1rem; }
+  .qc-section-title {
+    font-family: 'Cinzel', serif; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(150,185,255,0.85);
+  }
+  .qc-section p {
+    font-size: 0.97rem; color: rgba(200,220,255,0.75); line-height: 1.8;
+    margin-bottom: 0.8rem;
+  }
+  .qc-section ul {
+    padding-left: 1.4rem; margin-bottom: 0.8rem;
+  }
+  .qc-section ul li {
+    font-size: 0.95rem; color: rgba(200,220,255,0.72);
+    line-height: 1.75; margin-bottom: 0.4rem;
+  }
+  .qc-tip {
+    background: rgba(100,130,255,0.06);
+    border-left: 3px solid rgba(100,130,255,0.35);
+    padding: 0.9rem 1.1rem;
+    font-style: italic; font-size: 0.92rem;
+    color: rgba(180,210,255,0.65); line-height: 1.7;
+    margin-top: 0.8rem;
+  }
+  .qc-modal-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    margin-top: 2.5rem; padding-top: 2rem;
+    border-top: 1px solid rgba(100,130,255,0.15);
+  }
+
+  /* ── CATALOG BUY BUTTON ──────────────────────────── */
+  .btn-special-buy {
+    display: inline-block; margin-top: 0.8rem;
+    font-family: 'Cinzel', serif; font-size: 0.52rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--sky-deep); background: var(--gold);
+    border: 2px solid var(--gold);
+    padding: 0.55rem 1.2rem; text-decoration: none; cursor: pointer;
+    transition: all 0.3s;
+  }
+  .btn-special-buy:hover { background: transparent; color: var(--gold); box-shadow: 0 0 18px rgba(201,162,39,0.3); }
+  .btn-special-buy.coming-soon {
+    background: transparent; color: rgba(201,162,39,0.35);
+    border-color: rgba(201,162,39,0.18); cursor: default; pointer-events: none;
+  }
+
   /* ── FOUNDER READ MORE BUTTON ───────────────────── */
   .founder-read-more {
     font-family: 'Cinzel', serif; font-size: 0.6rem; font-weight: 700;
@@ -1066,14 +1166,14 @@
     <div class="event-item reveal"><div class="event-date"><span class="event-month">Apr</span><span class="event-day">14</span></div><div><div class="event-name">First Release Day</div><div class="event-desc">McGuffin Press makes its debut — all first titles available</div></div><span class="event-type">Launch</span></div>
     <div class="event-item reveal reveal-delay-1"><div class="event-date"><span class="event-month">May</span><span class="event-day">01</span></div><div><div class="event-name">Author Reading & Q&A</div><div class="event-desc">Join our debut authors for an evening of stories and conversation</div></div><span class="event-type">Reading</span></div>
     <div class="event-item reveal reveal-delay-2"><div class="event-date"><span class="event-month">May</span><span class="event-day">03</span></div><div><div class="event-name">Seeds for Autism</div><div class="event-desc">Downtown Phoenix — come find us and say hello</div></div><span class="event-type">Signing</span></div>
-    <div class="event-item reveal reveal-delay-3"><div class="event-date"><span class="event-month">Jun</span><span class="event-day">15</span></div><div><div class="event-name">Quarterly Giveaway Draw</div><div class="event-desc">Free books for mailing list subscribers — don't miss out</div></div><span class="event-type">Giveaway</span></div>
+    <div class="event-item reveal reveal-delay-3"><div class="event-date"><span class="event-month">Jun</span><span class="event-day">15</span></div><div><div class="event-name">Quarterly Giveaway Draw</div><div class="event-desc">Exclusive giveaway for mailing list subscribers — don't miss out</div></div><span class="event-type">Giveaway</span></div>
   </div>
 </section>
 
 <!-- STAY IN THE KNOW -->
 <section class="giveaway">
   <span class="giveaway-label">✦ Don't Miss Out ✦</span>
-  <h2>Free Quarterly Giveaways</h2>
+  <h2>Quarterly Giveaways</h2>
   <p>Join our mailing list for book giveaways, release announcements, author spotlights, and secrets we share only with our most devoted readers.</p>
   <form action="https://app.kit.com/forms/9104405/subscriptions" class="kit-form" method="post" data-sv-form="9104405" data-uid="59d1633650" data-format="inline" data-version="5">
     <div class="email-form">
@@ -1675,7 +1775,7 @@ window.addEventListener('scroll',()=>{if(window.scrollY>60)navEl.classList.add('
     <p class="modal-body">McGuffin Press is currently closed to submissions as we focus on our <strong>curated list of titles</strong>.<br><br>Please follow us or join our newsletter for announcements when submissions reopen.</p>
     <div class="modal-actions">
       <a href="https://www.instagram.com/mcguffinpress" target="_blank" rel="noopener" class="btn-primary">Follow on Instagram</a>
-      <a href="https://app.kit.com/forms/9104405/subscriptions" target="_blank" rel="noopener" class="btn-ghost">Join Newsletter</a>
+      <a href="https://mcguffin-press.kit.com/59d1633650" target="_blank" rel="noopener" class="btn-ghost">Join Newsletter</a>
     </div>
 
   </div>
