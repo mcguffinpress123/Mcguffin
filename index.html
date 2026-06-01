@@ -1776,7 +1776,22 @@ function submitWholesale(e) {
 }
 document.getElementById('wholesaleModal').addEventListener('click', function(e) {
   if (e.target === this) { this.classList.remove('active'); document.body.style.overflow = ''; }
-});</script>
+});
+// Auto-close modal after successful Formspree submission
+(function() {
+  var successEl = document.querySelector('#wholesaleModal [data-fs-success]');
+  if (!successEl) return;
+  var observer = new MutationObserver(function() {
+    if (successEl.style.display !== 'none' && successEl.style.display !== '') {
+      setTimeout(function() {
+        var modal = document.getElementById('wholesaleModal');
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }, 2200);
+    }
+  });
+  observer.observe(successEl, { attributes: true, attributeFilter: ['style'] });
+})();</script>
 
 <!-- WHOLESALE MODAL -->
 <div class="wholesale-modal-overlay" id="wholesaleModal">
