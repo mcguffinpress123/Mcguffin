@@ -1784,17 +1784,23 @@ document.getElementById('wholesaleModal').addEventListener('click', function(e) 
     <button class="wholesale-modal-close" onclick="document.getElementById('wholesaleModal').classList.remove('active');document.body.style.overflow=''">&#x2715;</button>
     <div class="wholesale-modal-title">Wholesale Pricing</div>
     <div class="wholesale-modal-rule"></div>
-    <form class="wholesale-form" onsubmit="submitWholesale(event)">
+    <div data-fs-success style="display:none;text-align:center;padding:2rem;font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:0.2em;color:var(--gold);">Γ£ª Thank you ΓÇö we will be in touch soon. Γ£ª</div>
+    <div data-fs-error style="display:none;text-align:center;padding:1rem;color:rgba(220,110,130,0.9);font-size:0.9rem;"></div>
+    <form id="wholesale-form" class="wholesale-form">
       <label for="ws-name">Name</label>
-      <input type="text" id="ws-name" name="name" required placeholder="Your full name">
+      <input type="text" id="ws-name" name="name" required placeholder="Your full name" data-fs-field>
       <label for="ws-email">Email</label>
-      <input type="email" id="ws-email" name="email" required placeholder="your@email.com">
+      <input type="email" id="ws-email" name="email" required placeholder="your@email.com" data-fs-field>
       <label for="ws-company">Company / Organization</label>
-      <input type="text" id="ws-company" name="company" placeholder="Bookshop, school, library...">
+      <input type="text" id="ws-company" name="company" placeholder="Bookshop, school, library..." data-fs-field>
       <label for="ws-comments">Comments</label>
-      <textarea id="ws-comments" name="comments" placeholder="Tell us about your order, quantity, etc."></textarea>
-      <button type="submit" class="wholesale-submit">Submit Enquiry</button>
+      <textarea id="ws-comments" name="comments" placeholder="Tell us about your order, quantity, etc." data-fs-field></textarea>
+      <button type="submit" class="wholesale-submit" data-fs-submit-btn>Submit Enquiry</button>
     </form>
   </div>
-</div></body>
+</div><script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#wholesale-form', formId: 'xykvrgvw' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script></body>
 </html>
