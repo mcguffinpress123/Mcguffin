@@ -1777,21 +1777,7 @@ function submitWholesale(e) {
 document.getElementById('wholesaleModal').addEventListener('click', function(e) {
   if (e.target === this) { this.classList.remove('active'); document.body.style.overflow = ''; }
 });
-// Auto-close modal after successful Formspree submission
-(function() {
-  var successEl = document.querySelector('#wholesaleModal [data-fs-success]');
-  if (!successEl) return;
-  var observer = new MutationObserver(function() {
-    if (successEl.style.display !== 'none' && successEl.style.display !== '') {
-      setTimeout(function() {
-        var modal = document.getElementById('wholesaleModal');
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-      }, 2200);
-    }
-  });
-  observer.observe(successEl, { attributes: true, attributeFilter: ['style'] });
-})();</script>
+</script>
 
 <!-- WHOLESALE MODAL -->
 <div class="wholesale-modal-overlay" id="wholesaleModal">
@@ -1799,7 +1785,7 @@ document.getElementById('wholesaleModal').addEventListener('click', function(e) 
     <button class="wholesale-modal-close" onclick="document.getElementById('wholesaleModal').classList.remove('active');document.body.style.overflow=''">&#x2715;</button>
     <div class="wholesale-modal-title">Wholesale Pricing</div>
     <div class="wholesale-modal-rule"></div>
-    <div data-fs-success style="display:none;text-align:center;padding:2rem;font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:0.2em;color:var(--gold);">Γ£ª Thank you ΓÇö we will be in touch soon. Γ£ª</div>
+    <div data-fs-success style="display:none;text-align:center;padding:2rem;font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:0.2em;color:#C9A227;">Thank you &mdash; we will be in touch soon.</div>
     <div data-fs-error style="display:none;text-align:center;padding:1rem;color:rgba(220,110,130,0.9);font-size:0.9rem;"></div>
     <form id="wholesale-form" class="wholesale-form">
       <label for="ws-name">Name</label>
@@ -1817,5 +1803,31 @@ document.getElementById('wholesaleModal').addEventListener('click', function(e) 
   window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
   formspree('initForm', { formElement: '#wholesale-form', formId: 'xykvrgvw' });
 </script>
-<script src="https://unpkg.com/@formspree/ajax@1" defer></script></body>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script><script>
+document.addEventListener('DOMContentLoaded', function() {
+  var modal = document.getElementById('wholesaleModal');
+  var successEl = modal ? modal.querySelector('[data-fs-success]') : null;
+  // Click outside to close
+  if (modal) {
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+  // Watch for success message appearing, then auto-close
+  if (successEl) {
+    var observer = new MutationObserver(function() {
+      if (successEl.style.display && successEl.style.display !== 'none') {
+        setTimeout(function() {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }, 2500);
+      }
+    });
+    observer.observe(successEl, { attributes: true, attributeFilter: ['style'] });
+  }
+});
+</script></body>
 </html>
